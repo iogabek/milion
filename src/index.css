@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Million Game Club Design System */
+
+@layer base {
+  :root {
+    /* Million Game Brand Colors */
+    --background: 218 41% 6%; /* #0B0F1A */
+    --foreground: 210 40% 98%;
+
+    --card: 218 35% 8%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 218 35% 10%;
+    --popover-foreground: 210 40% 98%;
+
+    /* Neon Blue Primary */
+    --primary: 188 100% 50%; /* #00E5FF */
+    --primary-foreground: 218 41% 6%;
+
+    /* Purple Secondary */
+    --secondary: 255 91% 67%; /* #A855F7 */
+    --secondary-foreground: 218 41% 6%;
+
+    --muted: 218 25% 15%;
+    --muted-foreground: 210 20% 70%;
+
+    /* Red Highlight */
+    --accent: 349 100% 59%; /* #FF1744 */
+    --accent-foreground: 218 41% 6%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 218 25% 20%;
+    --input: 218 25% 15%;
+    --ring: 188 100% 50%;
+
+    --radius: 0.75rem;
+
+    /* Million Game Neon Colors */
+    --neon-blue: 188 100% 50%; /* #00E5FF */
+    --neon-purple: 255 91% 67%; /* #A855F7 */
+    --neon-cyan: 188 100% 50%;
+    --neon-pink: 320 100% 65%;
+    --neon-red: 349 100% 59%; /* #FF1744 */
+    --gaming-dark: 218 41% 6%; /* #0B0F1A */
+    --gaming-surface: 218 35% 8%;
+    
+    /* Million Game Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(188 100% 50%), hsl(255 91% 67%));
+    --gradient-secondary: linear-gradient(135deg, hsl(255 91% 67%), hsl(320 100% 65%));
+    --gradient-accent: linear-gradient(135deg, hsl(188 100% 50%), hsl(180 100% 65%));
+    --gradient-surface: linear-gradient(135deg, hsl(218 35% 8%), hsl(218 25% 15%));
+    --gradient-red: linear-gradient(135deg, hsl(349 100% 59%), hsl(320 100% 65%));
+    
+    /* Million Game Shadows */
+    --shadow-neon: 0 0 20px hsl(188 100% 50% / 0.4);
+    --shadow-neon-purple: 0 0 20px hsl(255 91% 67% / 0.4);
+    --shadow-glow: 0 0 40px hsl(188 100% 50% / 0.3);
+    --shadow-card: 0 10px 30px -10px hsl(218 35% 3% / 0.8);
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    --transition-fast: all 0.2s ease-out;
+    
+    --sidebar-background: 220 27% 10%;
+    --sidebar-foreground: 280 100% 95%;
+    --sidebar-primary: 280 100% 65%;
+    --sidebar-primary-foreground: 220 27% 8%;
+    --sidebar-accent: 220 27% 15%;
+    --sidebar-accent-foreground: 280 100% 95%;
+    --sidebar-border: 220 27% 20%;
+    --sidebar-ring: 280 100% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-inter;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-orbitron;
+  }
+}
+
+@layer components {
+  /* Neon animations */
+  .neon-pulse {
+    animation: neonPulse 2s ease-in-out infinite;
+  }
+
+  /* Premium Loader Animations */
+  @keyframes grid-move {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(50px, 50px); }
+  }
+
+  @keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .animate-gradient {
+    animation: gradient 3s ease infinite;
+  }
+
+  .bg-300\% {
+    background-size: 300% 300%;
+  }
+
+  .particles-layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    background: radial-gradient(ellipse at center, transparent 0%, transparent 70%, hsl(188 100% 50% / 0.03) 100%);
+  }
+
+  .glitch-text {
+    animation: glitch 0.7s ease-in-out;
+  }
+
+  /* Prefers reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .particles-layer {
+      display: none;
+    }
+    
+    .neon-pulse,
+    .glitch-text {
+      animation: none;
+    }
+  }
+}
+
+@keyframes neonPulse {
+  0%, 100% { 
+    box-shadow: 0 0 20px hsl(188 100% 50% / 0.3);
+  }
+  50% { 
+    box-shadow: 0 0 30px hsl(188 100% 50% / 0.6), 0 0 40px hsl(255 91% 67% / 0.3);
+  }
+}
+
+@keyframes glitch {
+  0% { transform: translateX(0); }
+  20% { transform: translateX(-2px); }
+  40% { transform: translateX(2px); }
+  60% { transform: translateX(-1px); }
+  80% { transform: translateX(1px); }
+  100% { transform: translateX(0); }
+}
