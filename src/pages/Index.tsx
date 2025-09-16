@@ -426,7 +426,7 @@ const Index = () => {
               Bizning Manzil
             </h2>
             <p className="text-muted-foreground text-lg animate-fade-in">
-              Million Game Club - Toshkent, Chilonzor tumani
+              Million Game Club - Surxondaryo, Denov tumani
             </p>
           </div>
           
